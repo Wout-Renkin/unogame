@@ -1,0 +1,26 @@
+﻿<Window x:Class="UnoGame2.View.PickColorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UnoGame2.View"
+        mc:Ignorable="d"
+        WindowStyle ="None"
+        DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=PickColorWindowViewModel}"
+        Title="PickColorWindow" Height="400" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Grid.Column="0" Grid.Row="0" Height="Auto" Background="red" BorderBrush="red" Command="{Binding PickColorCommand}" CommandParameter="red"></Button>
+        <Button Grid.Column="1" Grid.Row="0" Height="Auto" Background="blue" BorderBrush="blue" Command="{Binding PickColorCommand}" CommandParameter="blue"></Button>
+        <Button Grid.Column="0" Grid.Row="1" Height="Auto" Background="green" BorderBrush="green" Command="{Binding PickColorCommand}" CommandParameter="green"></Button>
+        <Button Grid.Column="1" Grid.Row="1" Height="Auto" Background="yellow" BorderBrush="yellow" Command="{Binding PickColorCommand}" CommandParameter="yellow"></Button>
+        
+    </Grid>
+</Window>

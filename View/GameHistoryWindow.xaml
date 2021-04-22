@@ -1,0 +1,53 @@
+﻿<Window x:Class="UnoGame2.View.GameHistoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=GameHistoryWindowViewModel}"
+        xmlns:local="clr-namespace:UnoGame2.View"
+        mc:Ignorable="d"
+        Title="GameHistoryWindow" Height="450" Width="800">
+    <Window.Background>
+
+        <ImageBrush ImageSource="/Images/uno.jpg"/>
+
+    </Window.Background>
+    <Grid>
+        <materialDesign:Card Background="{DynamicResource PrimaryHueMidForegroundBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Width="620" Margin="0, 20" Grid.Column="1">
+            <DockPanel>
+                <materialDesign:ColorZone Mode="PrimaryMid" HorizontalAlignment="Stretch" DockPanel.Dock="Top" Padding="5">
+
+                    <TextBlock Name="TextBlockTitel" Foreground="White" FontSize="16" HorizontalAlignment="Center">Overzicht games</TextBlock>
+                </materialDesign:ColorZone>
+                <materialDesign:ColorZone DockPanel.Dock="Top">
+                    <ListView ItemsSource="{Binding Games}" SelectedItem="{Binding SelectedItem}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Result }" Header="Result" />
+                                <GridViewColumn DisplayMemberBinding="{Binding StartTime}" Header="Start time" />
+                                <GridViewColumn DisplayMemberBinding="{Binding EndTime}" Header="End time" />
+                                <GridViewColumn DisplayMemberBinding="{Binding TotalCardsPlayed}" Header="Cards played" />
+                                <GridViewColumn DisplayMemberBinding="{Binding TotalTurns}" Header="Turns" />
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </materialDesign:ColorZone>
+                <materialDesign:ColorZone VerticalAlignment="Bottom">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="0.20*"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Command="{Binding BackMainPageCommand}" >Back</Button>
+                        <Button Grid.Column="2" Command="{Binding DeleteGameCommand}" Background="Red" >Delete Game</Button>
+
+
+                    </Grid>
+                </materialDesign:ColorZone>
+            </DockPanel>
+        </materialDesign:Card>
+    </Grid>
+</Window>

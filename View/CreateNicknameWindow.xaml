@@ -1,0 +1,50 @@
+﻿<Window x:Class="UnoGame2.View.CreateNicknameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:UnoGame2.View"
+        mc:Ignorable="d"
+        DataContext="{Binding Source={StaticResource mainViewModelLocator}, Path=CreateNicknameWindowViewModel}"
+        Title="CreateNicknameWindow" Height="450" Width="800">
+    <Window.Background>
+
+        <ImageBrush ImageSource="/Images/uno.jpg"/>
+
+    </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="2" Grid.Column="1" >
+            <Grid.ColumnDefinitions>
+       
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*" />
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+            <Grid Background="White" Height="181" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <materialDesign:ColorZone Mode="PrimaryMid" HorizontalAlignment="Stretch" DockPanel.Dock="Top">
+
+                    <TextBlock Name="TextBlockTitel" Foreground="White" Padding="4" FontSize="16" HorizontalAlignment="Center">Set nickname</TextBlock>
+                </materialDesign:ColorZone>
+                <TextBox Grid.Row="1" Margin="10" x:Name="NameTextBox" materialDesign:HintAssist.Hint="Nickname" Text="{Binding Player.Nickname}"></TextBox>
+                <Button Grid.Row="2" VerticalAlignment="Bottom" Command="{Binding SaveNicknameCommand}">Save</Button>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Window>
